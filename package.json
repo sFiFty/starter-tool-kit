@@ -1,0 +1,22 @@
+{
+  "name": "starter-tool-kit",
+  "version": "1.0.0",
+  "description": "The set of tools for develop a project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sFiFty/starter-tool-kit.git"
+  },
+  "keywords": [
+    "react, redux, typescript, sass, firebase, webpack, nodejs, express, next"
+  ],
+  "author": "sFiFty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sFiFty/starter-tool-kit/issues"
+  },
+  "homepage": "https://github.com/sFiFty/starter-tool-kit#readme"
+}
