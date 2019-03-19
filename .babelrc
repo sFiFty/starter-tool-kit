@@ -2,5 +2,13 @@
   "presets": [
     "next/babel",
     "@zeit/next-typescript/babel",
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "components": "./app/components",
+        "screens": "./app/screens",
+      }
+    }]
   ]
 }

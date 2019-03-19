@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import { Layout } from '../app/components/Layout'
+import { Layout } from 'components/Layout';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
