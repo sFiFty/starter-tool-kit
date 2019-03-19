@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "node server.js",
+    "start": "node server.ts",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
