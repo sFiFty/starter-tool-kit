@@ -13,6 +13,12 @@ app.prepare().then(() => {
   const server = express();
   server.use(compression());
   server.use(express.static(path.join(__dirname, 'dist')));
+
+  app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /");
+  });
+  
   server.get('*', (req, res) => {
     return handle(req, res)
   })
