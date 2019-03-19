@@ -18,6 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "components/*": ["./app/components/*"],
+      "screens/*": ["./app/screens/*"],
     }
   }
 }
