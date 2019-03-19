@@ -13,6 +13,10 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="Free toolkit for develop web application" />
+          <meta name="keywords" content="Next,NextJs,React,Express,Toolkit,Web Toolkit,React Toolkit,Tool Kit,Starter for Startup"></meta>
+          <meta name="author" content="Oleksandr Rudin" />
+          <title>Started Toolkit</title>
         </Head>
         <body className="custom_class">
           <Layout>

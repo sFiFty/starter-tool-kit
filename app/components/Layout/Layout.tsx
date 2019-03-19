@@ -4,6 +4,9 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 
 export const Layout = (props) => {
+  React.useEffect(() => {
+    console.log(1)
+  }, []);
   return (
     <>
       <Header />
