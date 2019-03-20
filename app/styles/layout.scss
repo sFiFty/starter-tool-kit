@@ -5,8 +5,8 @@ body {
   "header  header  header"
   "section section section"
   "footer  footer  footer";
+  grid-template-rows: auto 1fr auto;
 }
-
 
 header {
   grid-area: header;
@@ -19,5 +19,11 @@ section {
 
 footer {
   grid-area: footer;
+}
+
+body.app {
+  a.button strong {
+    font-weight: 400;
+  }
 }
 

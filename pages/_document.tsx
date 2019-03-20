@@ -37,7 +37,7 @@ export default class MyDocument extends Document {
           <meta name="keywords" content="Next,NextJs,React,Express,Toolkit,Web Toolkit,React Toolkit,Tool Kit,Starter for Startup"></meta>
           <meta name="author" content="Oleksandr Rudin" />
         </Head>
-        <body className="custom_class">
+        <body className="app">
           <Layout>
             <Main />
             <NextScript />
