@@ -1,11 +1,8 @@
 import React from 'react';
+import { Home } from 'screens/Home';
 
 export default class extends React.Component {
   render() {    
-    return (
-      <>
-        <div>hi</div>
-      </>
-    )
+    return <Home />
   }
 }

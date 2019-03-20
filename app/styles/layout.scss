@@ -11,14 +11,24 @@ body {
 header {
   grid-area: header;
   position: relative;
+  border-bottom: 1px solid $dark-liver;
 }
 
 section {
   grid-area: section;
+  > .container {
+    height: 100%;
+    > div {
+      height: 100%;
+    }
+  }
 }
 
 footer {
   grid-area: footer;
+  padding: 30px;
+  background-color: $dark-liver;
+  color: $white;
 }
 
 body.app {

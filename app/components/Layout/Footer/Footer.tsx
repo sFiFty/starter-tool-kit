@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 export const Footer = () => (
-  <footer className="footer">
-    <div className="content has-text-centered">
+  <footer>
+    <div className="content has-text-centered container">
       Footer
     </div>
   </footer>
