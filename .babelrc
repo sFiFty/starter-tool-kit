@@ -9,6 +9,7 @@
         "components": "./app/components",
         "screens": "./app/screens",
         "utils": "./app/utils",
+        "types": "./app/types",
       }
     }]
   ]

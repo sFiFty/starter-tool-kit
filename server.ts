@@ -3,12 +3,13 @@ const path = require('path');
 const next = require('next');
 const compression = require('compression') ;
 const favicon = require('serve-favicon');
+const config = require('config');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || config.get('port');
 
 app.prepare().then(() => {
   const server = express();

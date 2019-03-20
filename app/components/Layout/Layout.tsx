@@ -3,16 +3,11 @@ import * as React from 'react';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-import { initGA, logPageView } from 'utils/reactga';
+interface ILayoutProps {
+  children: any;
+}
 
-export const Layout = (props) => {
-  React.useEffect(() => {
-    if (!window.GA_INITIALIZED) {
-      initGA()
-      window.GA_INITIALIZED = true
-    }
-    logPageView()
-  }, []);
+export const Layout = (props: ILayoutProps) => {
   return (
     <>
       <Header />
