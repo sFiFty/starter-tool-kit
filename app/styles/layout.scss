@@ -1,0 +1,23 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+  "header  header  header"
+  "section section section"
+  "footer  footer  footer";
+}
+
+
+header {
+  grid-area: header;
+  position: relative;
+}
+
+section {
+  grid-area: section;
+}
+
+footer {
+  grid-area: footer;
+}
+

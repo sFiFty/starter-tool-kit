@@ -1,0 +1,25 @@
+$dark-liver: #50514F;
+$sunset-orange: #F25F5C;
+$mustard: #FFE066;
+$lapis-lazuli: #247BA0;
+$green-sheen: #70C1B3;
+$white: #FFFFFF;
+$black: #000000;
+
+// 1. Import the initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+// 2. Setup Custom Colors
+$primary: $lapis-lazuli;
+$primary-invert: findColorInvert($primary);
+
+// 3. Add new color variables to the color map.
+@import "~bulma/sass/utilities/derived-variables";
+$addColors: (
+  "primary": ($primary, $primary-invert),
+);
+$colors: map-merge($colors, $addColors);
+
+// 4. Import the rest of Bulma
+@import "~bulma";
