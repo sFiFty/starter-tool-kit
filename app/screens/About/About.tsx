@@ -4,7 +4,7 @@ import './styles.scss';
 
 export const About = () => {
   return (
-    <div className="about-container">
+    <div className="about-container container">
       <div className="is-size-4">
         <p>Hello, my name is Alex. I am an owner of the "Starter Toolkit".</p>
         <p>The main goal of "Started Toolkit" is to help quickly build new applications.</p>
