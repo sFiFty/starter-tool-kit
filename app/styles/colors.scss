@@ -26,6 +26,9 @@ $warning-invert: findColorInvert($warning);
 $danger: $sunset-orange;
 $danger-invert: findColorInvert($danger);
 
+$link: $lapis-lazuli;
+$link-invert: findColorInvert($lapis-lazuli);
+
 // 3. Add new color variables to the color map.
 @import "~bulma/sass/utilities/derived-variables";
 $addColors: (
@@ -34,6 +37,7 @@ $addColors: (
   "success": ($success, $success-invert),
   "warning": ($warning, $warning-invert),
   "danger": ($danger, $danger-invert),
+  "link": ($link, $link-invert),
 );
 $colors: map-merge($colors, $addColors);
 

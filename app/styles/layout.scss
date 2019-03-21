@@ -8,12 +8,14 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+// HEADER
 header {
   grid-area: header;
   position: relative;
   border-bottom: 1px solid $dark-liver;
 }
 
+//SECTION
 section {
   grid-area: section;
   > .container {
@@ -24,16 +26,32 @@ section {
   }
 }
 
+// FOOTER
 footer {
   grid-area: footer;
   padding: 30px;
-  background-color: $dark-liver;
-  color: $white;
+  background-color: $light;
+  > div {
+    display: flex;
+    h4 {
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+    }
+    h4.author {
+      white-space: nowrap;
+    }
+  }
 }
 
 body.app {
   a.button strong {
     font-weight: 400;
+  }
+  a:hover {
+    color: $link;
+    text-decoration: underline;
   }
 }
 
