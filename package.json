@@ -14,7 +14,7 @@
     "url": "git+https://github.com/sFiFty/starter-tool-kit.git"
   },
   "keywords": [
-    "react, redux, typescript, sass, firebase, webpack, nodejs, express, next"
+    "express, node, nodejs, react, next, nextjs, typescript, bulma, mongo, mongodb, firebase, heroku"
   ],
   "author": "sFiFty",
   "license": "ISC",
