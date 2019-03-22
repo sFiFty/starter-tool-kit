@@ -4,7 +4,7 @@ const next = require('next');
 const compression = require('compression') ;
 const favicon = require('serve-favicon');
 const config = require('config');
-const db = require('./server/db.ts');
+const db = require('./server/db');
 const firebase = require('server/firebase');
 
 

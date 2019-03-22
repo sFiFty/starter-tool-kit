@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server.ts",
-    "build": "next build",
+    "build": "next build && typescript --project tsconfig.server.json",
     "start": "node server.ts",
     "heroku-postbuild": "npm run build"
   },
