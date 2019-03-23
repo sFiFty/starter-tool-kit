@@ -4,10 +4,9 @@
   "description": "The set of tools for develop a project",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server.ts",
-    "build": "next build && typescript --project tsconfig.server.json",
-    "start": "node server.ts",
-    "heroku-postbuild": "npm run build"
+    "dev": "nodemon",
+    "build": "next build && tsc && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node .next/server"
   },
   "repository": {
     "type": "git",
@@ -44,6 +43,8 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "babel-plugin-module-resolver": "^3.2.0"
+    "babel-plugin-module-resolver": "^3.2.0",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.4000"
   }
 }
