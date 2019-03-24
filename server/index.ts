@@ -29,7 +29,7 @@ app.prepare().then(() => {
     res.sendFile(path.join(__dirname, 'static', 'sitemap.xml'))
   });
 
-  server.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
+  //server.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
 
   server.get('*', (req: any, res: any) => {
     return handle(req, res)
