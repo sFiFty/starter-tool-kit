@@ -7,6 +7,7 @@
     ["module-resolver", {
       "alias": {
         "components": "./app/components",
+        "containers": "./app/containers",
         "screens": "./app/screens",
         "utils": "./app/utils",
         "types": "./app/types",

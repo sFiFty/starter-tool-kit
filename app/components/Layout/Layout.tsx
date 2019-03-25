@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { Footer } from './Footer';
 import { Header } from './Header';
-import { AuthModal } from 'components/AuthModal';
 
 interface ILayoutProps {
   children: any;
 }
+
 
 export const Layout = (props: ILayoutProps) => {
   return (
@@ -18,7 +18,6 @@ export const Layout = (props: ILayoutProps) => {
         </div>
       </section>
       <Footer />
-      <AuthModal />
     </>
   );
 }
