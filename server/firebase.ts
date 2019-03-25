@@ -1,6 +1,10 @@
-const firebase = require('firebase');
-const config = require('config');
+const admin = require("firebase-admin");
 
-firebase.initializeApp(config.get('FIREBASE_CONFIG'));
+const serviceAccount = require("./adminsdk.json");
 
-export default firebase;
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://starter-toolkit.firebaseio.com"
+});
+
+export const firebase = admin;

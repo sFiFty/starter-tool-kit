@@ -4,7 +4,7 @@ const next = require('next');
 const compression = require('compression') ;
 const config = require('config');
 const db = require('./db');
-const firebase = require('./firebase');
+const { firebase } = require('./firebase');
 
 
 const dev = process.env.NODE_ENV !== 'production';
