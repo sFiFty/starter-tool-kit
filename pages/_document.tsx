@@ -8,11 +8,7 @@ import { IConfigTypes } from 'types/core';
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx)
-    console.log(config);
-    return { 
-      firebaseConfig: config.get('FIREBASE_CONFIG'),
-      ...initialProps
-    }
+    return initialProps;
   }
 
   render() {
