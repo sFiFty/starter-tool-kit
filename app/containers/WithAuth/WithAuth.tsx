@@ -3,6 +3,8 @@ import getConfig from 'next/config';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
+import { AuthModal } from 'components/AuthModal';
+
 const { publicRuntimeConfig } = getConfig();
 
 
@@ -29,7 +31,15 @@ export const withAuth = <P extends object>(Component: React.ComponentType<P>) =>
       });
     }
     render() {
-      return <Component {...this.props as P} />;
+      const { isLoading, isAuthorized } = this.state;
+      if (isLoading) return <div>Is loading...</div>;
+      if (isAuthorized) {
+        return <Component {...this.props as P} />;
+      }
+      return (
+        <AuthModal />
+      )
+      
     }
   };
 }

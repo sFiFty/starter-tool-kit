@@ -7,7 +7,6 @@ interface ILayoutProps {
   children: any;
 }
 
-
 export const Layout = (props: ILayoutProps) => {
   return (
     <>

@@ -11,6 +11,7 @@
         "screens": "./app/screens",
         "utils": "./app/utils",
         "types": "./app/types",
+        "styles": "./app/styles",
       }
     }]
   ]
