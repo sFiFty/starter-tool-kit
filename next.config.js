@@ -6,7 +6,6 @@ const withPlugins = require('next-compose-plugins');
 
 module.exports = withPlugins([typescript, sass], {
   publicRuntimeConfig: {
-    // Will be available on both server and client
-    staticFolder: '/static'
+    FIREBASE_CONFIG: config.FIREBASE_CONFIG
   }
 })
