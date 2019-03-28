@@ -27,7 +27,7 @@ export const withAuth = <P extends object>(Component: React.ComponentType<P>) =>
         if (authUser) {
           this.setState({ authUser, isLoading: false, isAuthorized: true });
         } else {
-          this.setState({ authUser: null, isLoading: true, isAuthorized: false })
+          this.setState({ authUser: null, isLoading: false, isAuthorized: false })
         }
       });
     }
@@ -40,7 +40,6 @@ export const withAuth = <P extends object>(Component: React.ComponentType<P>) =>
       return (
         <AuthModal />
       )
-      
     }
   };
 }
