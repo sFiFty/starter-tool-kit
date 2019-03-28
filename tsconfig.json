@@ -23,6 +23,7 @@
       "utils/*": ["./app/utils/*"],
       "types/*": ["./app/types/*"],
       "styles/*": ["./app/styles/*"],
+      "static/*": ["./static/*"],
     }
   }
 }

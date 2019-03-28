@@ -16,19 +16,17 @@ app.prepare().then(() => {
   const server = express();
   server.use(compression());
   server.use(express.static(path.join(__dirname, 'dist')));
-  const { api } = require('./api');
+  const api = require('./api');
   api(server);
-    
-  server.listen(port, (err: any) => {
+  server.listen(port, (err) => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
-
-  server.get('*', (req: any, res: any) => {
+  server.get('*', (req, res) => {
     return handle(req, res)
   })
   
-}).catch((ex: any) => {
+}).catch((ex) => {
   console.error(ex.stack)
   process.exit(1)
 })

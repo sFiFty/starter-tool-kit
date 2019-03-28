@@ -12,4 +12,4 @@ database.once('open', function() {
   console.log('db-connected');
 });
 
-export { database };
+module.exports = database;

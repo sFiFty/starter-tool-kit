@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
 import { AuthModal } from 'components/AuthModal';
+import { Loader } from 'components/Loader';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -26,13 +27,13 @@ export const withAuth = <P extends object>(Component: React.ComponentType<P>) =>
         if (authUser) {
           this.setState({ authUser, isLoading: false, isAuthorized: true });
         } else {
-          this.setState({ authUser: null, isLoading: false, isAuthorized: false })
+          this.setState({ authUser: null, isLoading: true, isAuthorized: false })
         }
       });
     }
     render() {
       const { isLoading, isAuthorized } = this.state;
-      if (isLoading) return <div>Is loading...</div>;
+      if (isLoading) return <Loader withContainer />;
       if (isAuthorized) {
         return <Component {...this.props as P} />;
       }

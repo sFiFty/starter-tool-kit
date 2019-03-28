@@ -1,4 +1,7 @@
 import * as React from 'react';
+import LoaderImage from 'static/loader.svg';
+
+import './styles.scss';
 
 export interface ILoaderProps {
   withContainer?: boolean;
@@ -9,13 +12,9 @@ export const Loader = ({ withContainer = false, size = 2 }: ILoaderProps) => {
   if (withContainer) {
     return (
       <div className="loader-container container">
-        <img src={require('static/loader.svg')} alt="loader" />
+        <img className="loader-image" src={LoaderImage} alt="loader"/>
       </div>
     )
   }
-  return (
-    <div>
-      <img src={require('static/loader.svg')} alt="loader" />
-    </div>
-  );
+  return <img src={LoaderImage} alt="loader"/>
 }
