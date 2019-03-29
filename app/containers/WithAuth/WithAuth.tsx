@@ -3,7 +3,7 @@ import getConfig from 'next/config';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
-import { AuthModal } from 'components/AuthModal';
+import { Auth } from 'components/Auth';
 import { Loader } from 'components/Loader';
 
 const { publicRuntimeConfig } = getConfig();
@@ -38,7 +38,7 @@ export const withAuth = <P extends object>(Component: React.ComponentType<P>) =>
         return <Component {...this.props as P} />;
       }
       return (
-        <AuthModal />
+        <Auth />
       )
     }
   };
