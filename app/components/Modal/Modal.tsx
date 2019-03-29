@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { addClassNames } from 'utils/component-helpers';
+import { Icon, IIconsNames } from 'components/Icon';
 import './styles.scss';
 
 export interface IModalProps {
@@ -21,7 +22,7 @@ export const Modal = ({ contentClassName, children, fullScreen }: IModalProps) =
       <div className={contentClassNames}>
         {children}
       </div>
-      <button className="modal-close is-large" aria-label="close"></button>
+      <Icon name={IIconsNames.close} className="modal-close is-large" />
     </div>
   );
 }
