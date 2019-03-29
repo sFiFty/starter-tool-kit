@@ -1,7 +1,20 @@
 @import '../../styles/colors.scss';
 
 .auth-modal-container {
-  .modal-content {
-    background: $white;
+  .auth-modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .landing, .auth {
+      height: 100%;
+      width: 50%;
+    }
+    .landing {
+      background-color: $primary;
+    }
+    .auth {
+      background-color: $muted-bg
+    }
   }
 }
