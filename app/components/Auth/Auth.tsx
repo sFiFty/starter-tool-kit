@@ -15,7 +15,7 @@ export const Auth = () => {
           </div>
           <div className="auth">
             <div className="auth-content">
-              <h1>To continue Log in or Sign up into the Starter Toolkit </h1>
+              <h1 className="is-size-2 has-text-black">To continue log in into the Starter Toolkit </h1>
               <Input type="email" placeholder="Text input" />
               <Input  type="password" placeholder="Text input" />
             </div>

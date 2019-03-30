@@ -14,7 +14,15 @@
       background-color: $primary;
     }
     .auth {
-      background-color: $muted-bg
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $muted-bg;
+      .auth-content {
+        h1 {
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 }
