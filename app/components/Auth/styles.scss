@@ -2,26 +2,35 @@
 
 .auth-modal-container {
   .auth-modal-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
+    display: flex;
     .landing, .auth {
-      height: 100%;
       width: 50%;
     }
     .landing {
       background-color: $primary;
     }
     .auth {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: $muted-bg;
       .auth-content {
         h1 {
           margin-bottom: 20px;
         }
+        input {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .auth-modal-container {
+    .auth-modal-content {
+      flex-direction: column-reverse;
+      .landing, .auth {
+        width: 100%;
+        min-height: 50vh;
       }
     }
   }

@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { addClassNames } from 'utils/component-helpers';
+import './styles.scss';
 
 export interface IInputProps {
   type?: string;
@@ -7,7 +9,7 @@ export interface IInputProps {
   className?: string;
 }
 
-const DEFAULT_CLASSES = 'input';
+const DEFAULT_CLASSES = 'input st-input';
 const DEFAULT_TYPE = 'text';
 
 export const Input = ({ type = DEFAULT_TYPE, placeholder = '', className }: IInputProps) => {
