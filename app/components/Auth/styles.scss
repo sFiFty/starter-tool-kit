@@ -2,17 +2,25 @@
 
 .auth-modal-container {
   .auth-modal-content {
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     .landing, .auth {
       width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      .inner-content {
+        max-width: 80%;
+        width: auto;
+      }
     }
     .landing {
       background-color: $primary;
     }
     .auth {
       background-color: $muted-bg;
-      .auth-content {
+      .inner-content {
         h1 {
           margin-bottom: 20px;
         }

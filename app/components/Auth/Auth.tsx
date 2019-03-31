@@ -9,13 +9,13 @@ export const Auth = () => {
       <Modal fullScreen>
         <div className="auth-modal-content">
           <div className="landing">
-            <div className="landing-content">
+            <div className="inner-content">
               Some landing content
             </div>
           </div>
           <div className="auth">
-            <div className="auth-content">
-              <h1 className="is-size-2 has-text-black">To continue log in into the Starter Toolkit </h1>
+            <div className="inner-content">
+              <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Hello again!</h1>
               <Input type="email" placeholder="Text input" />
               <Input  type="password" placeholder="Text input" />
             </div>
