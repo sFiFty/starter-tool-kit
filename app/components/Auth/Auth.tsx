@@ -4,9 +4,13 @@ import { Modal } from 'components/Modal';
 import './styles.scss';
 
 export const Auth = () => {
+  const [isModalShown, showModal] = React.useState(true);
+  const onModalVisibilityChange = (isShown: boolean) => {
+    showModal(isShown);
+  }
   return (
     <div className="auth-modal-container">
-      <Modal fullScreen>
+      <Modal fullScreen onVisibilityChange={onModalVisibilityChange} isVisible={isModalShown}>
         <div className="auth-modal-content">
           <div className="landing">
             <div className="inner-content">
