@@ -1,5 +1,5 @@
 import { Icon } from './Icon';
-import { IIconsNames } from './icons';
+import { IIconsNames } from './config';
 
 export {
   Icon,

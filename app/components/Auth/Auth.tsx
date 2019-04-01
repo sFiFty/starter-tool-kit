@@ -6,7 +6,7 @@ import './styles.scss';
 export const Auth = () => {
   const [isModalShown, showModal] = React.useState(true);
   const onModalVisibilityChange = (isShown: boolean) => {
-    showModal(isShown);
+    //showModal(isShown);
   }
   return (
     <div className="auth-modal-container">

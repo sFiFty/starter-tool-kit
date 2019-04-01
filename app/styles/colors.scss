@@ -30,6 +30,8 @@ $danger-invert: findColorInvert($danger);
 $link: $lapis-lazuli;
 $link-invert: findColorInvert($lapis-lazuli);
 
+$border-color: $grey-light;
+
 // 3. Add new color variables to the color map.
 @import "~bulma/sass/utilities/derived-variables";
 $addColors: (

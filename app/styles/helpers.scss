@@ -1,0 +1,13 @@
+button.is-no-effects {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  &:active, &:focus, &:focus:not(:active) {
+    border-color: transparent; 
+    box-shadow: none;
+    outline: none;
+  }
+  img {
+    width: 15px;
+  }
+}

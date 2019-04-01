@@ -24,8 +24,8 @@ export const Modal = ({ contentClassName, children, fullScreen, isVisible, onVis
       <div className={contentClassNames}>
         {children}
       </div>
-      <button className="button is-white" onClick={() => onVisibilityChange(!isVisible)}>
-        <Icon  name={IIconsNames.close} className="modal-close is-large" />
+      <button className="button button-close is-no-effects is-rounded" onClick={() => onVisibilityChange(!isVisible)}>
+        <Icon  name={IIconsNames.close} />
       </button>
     </div>
   );

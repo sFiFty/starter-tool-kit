@@ -1,0 +1,44 @@
+@mixin basicSize {
+  width: 1rem;
+  height: 1rem;
+}
+
+@mixin smallSize {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+@mixin largeSize {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+@mixin bigSize {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include basicSize();
+  img {
+    @include basicSize();
+  }
+}
+
+.icon-container.is-small {
+  @include smallSize();
+  img { @include smallSize() }
+}
+
+.icon-container.is-large {
+  @include largeSize();
+  img { @include largeSize() }
+}
+
+.icon-container.is-large {
+  @include bigSize();
+  img { @include bigSize() }
+}
