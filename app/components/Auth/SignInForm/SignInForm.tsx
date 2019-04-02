@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
 
-export interface ISignInFormPropsProps {
+export interface ISignInFormProps {
 }
 
-export const SignInFormProps = (props: ISignInFormPropsProps) => {
+export const SignInForm = (props: ISignInFormProps) => {
   return (
     <>
       <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Hello again!</h1>

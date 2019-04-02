@@ -1,1 +1,1 @@
-export { SignInFormProps } from './SignInForm';
+export { SignInForm } from './SignInForm';

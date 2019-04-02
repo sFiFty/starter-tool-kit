@@ -1,1 +1,7 @@
-export { Auth } from './Auth';
+import { Auth } from './Auth';
+import { IAuthModes } from './config';
+
+export {
+  Auth,
+  IAuthModes
+}
