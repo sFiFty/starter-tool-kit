@@ -1,11 +1,12 @@
+@import '../../styles/colors.scss';
+
 input.st-input {
-  height: 50px;
   &:hover {
     box-shadow: none;
-    border: 1px solid #247ba0;
+    border: 1px solid $primary;
   }
   &:focus, &:active {
     box-shadow: none;
-    border: 2px solid #247ba0;
+    border: 2px solid $primary;
   }
 }

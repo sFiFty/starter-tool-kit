@@ -1,6 +1,7 @@
 import { Button } from './Button';
-import { IButtonTypes } from './config';
+import { IButtonTypes, IButtonSizes } from './config';
 export {
   Button,
-  IButtonTypes
+  IButtonTypes,
+  IButtonSizes
 };
