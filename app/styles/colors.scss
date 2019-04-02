@@ -1,7 +1,7 @@
 $dark-liver: #50514F;
 $sunset-orange: #F25F5C;
 $mustard: #FFE066;
-$lapis-lazuli: #247BA0;
+$zima-blue: #1bb4f3;
 $green-sheen: #70C1B3;
 $white: #FFFFFF;
 $muted-bg: #f7f6f6;
@@ -12,7 +12,7 @@ $black: #000000;
 @import "~bulma/sass/utilities/functions";
 
 // 2. Setup Custom Colors
-$primary: $lapis-lazuli;
+$primary: $zima-blue;
 $primary-invert: findColorInvert($primary);
 
 $text: $dark-liver;
@@ -27,8 +27,8 @@ $warning-invert: findColorInvert($warning);
 $danger: $sunset-orange;
 $danger-invert: findColorInvert($danger);
 
-$link: $lapis-lazuli;
-$link-invert: findColorInvert($lapis-lazuli);
+$link: $zima-blue;
+$link-invert: findColorInvert($zima-blue);
 
 $border-color: $grey-light;
 
