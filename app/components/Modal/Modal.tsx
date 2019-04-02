@@ -25,6 +25,7 @@ export const Modal = ({ contentClassName, children, fullScreen, isVisible, onVis
         {children}
       </div>
       <button className="button button-close is-no-effects is-rounded" onClick={() => onVisibilityChange(!isVisible)}>
+        <div className="hover-bg" />
         <Icon  name={IIconsNames.close} />
       </button>
     </div>
