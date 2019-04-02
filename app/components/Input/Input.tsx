@@ -16,6 +16,6 @@ export const Input = ({ type = DEFAULT_TYPE, placeholder = '', className }: IInp
 
   const classNames = addClassNames(className, DEFAULT_CLASSES);
   return (
-    <input className={classNames} type={type} placeholder={placeholder} />
+    <input autoComplete="new-password" className={classNames} type={type} placeholder={placeholder} />
   );
 }

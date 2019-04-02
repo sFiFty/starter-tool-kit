@@ -3,6 +3,7 @@ import Router from 'next/router'
 
 import { Input } from 'components/Input';
 import { Modal } from 'components/Modal';
+import { Button, IButtonTypes } from 'components/Button';
 import { routes } from 'utils/routes';
 import './styles.scss';
 
@@ -27,8 +28,11 @@ export const Auth = () => {
           <div className="auth">
             <div className="inner-content">
               <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Hello again!</h1>
-              <Input type="email" placeholder="Text input" />
-              <Input  type="password" placeholder="Text input" />
+              <Input type="email" placeholder="Email" />
+              <Input  type="password" placeholder="Password" />
+              <div className="has-text-centered">
+                <Button type={IButtonTypes.primary}>Login</Button>
+              </div>
             </div>
           </div>
         </div>

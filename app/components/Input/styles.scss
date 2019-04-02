@@ -1,3 +1,11 @@
 input.st-input {
   height: 50px;
+  &:hover {
+    box-shadow: none;
+    border: 1px solid #247ba0;
+  }
+  &:focus, &:active {
+    box-shadow: none;
+    border: 2px solid #247ba0;
+  }
 }
