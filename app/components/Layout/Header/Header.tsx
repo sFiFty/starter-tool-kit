@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Link from 'next/link'
 
+import { routes } from 'utils/routes';
+
 export const Header = () => {
   return (
     <header>
@@ -18,13 +20,13 @@ export const Header = () => {
 
           <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
-              <Link href='/'>
+              <Link href={routes.home}>
                 <a className="navbar-item">Home</a>
               </Link>
-              <Link href='/about'>
+              <Link href={routes.about}>
                 <a className="navbar-item">About Project</a>
               </Link>
-              <Link href='/administration'>
+              <Link href={routes.administration}>
                 <a className="navbar-item">Administration</a>
               </Link>
             </div>

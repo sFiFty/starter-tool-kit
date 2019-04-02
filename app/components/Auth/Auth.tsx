@@ -1,12 +1,19 @@
 import * as React from 'react';
+import Router from 'next/router'
+
 import { Input } from 'components/Input';
 import { Modal } from 'components/Modal';
+import { routes } from 'utils/routes';
 import './styles.scss';
 
 export const Auth = () => {
   const [isModalShown, showModal] = React.useState(true);
   const onModalVisibilityChange = (isShown: boolean) => {
-    //showModal(isShown);
+    if (!isShown) {
+      Router.push(routes.home)
+    }
+    showModal(isShown);
+
   }
   return (
     <div className="auth-modal-container">
