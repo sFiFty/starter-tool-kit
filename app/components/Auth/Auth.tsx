@@ -3,11 +3,16 @@ import Router from 'next/router'
 
 
 import { Modal } from 'components/Modal';
+import { IAuthModes } from './config';
 import { SignInFormProps } from './SignInForm';
 import { routes } from 'utils/routes';
 import './styles.scss';
 
-export const Auth = () => {
+export interface ISignInFormPropsProps {
+  mode: IAuthModes;
+}
+
+export const Auth = ({ mode }: ISignInFormPropsProps) => {
   const [isModalShown, showModal] = React.useState(true);
   const onModalVisibilityChange = (isShown: boolean) => {
     if (!isShown) {
