@@ -1,12 +1,15 @@
 @import '../../styles/colors.scss';
 
-input.st-input {
-  &:hover {
-    box-shadow: none;
-    border: 1px solid $primary;
+input.input.st-input {
+  font-size: $size-6;
+  padding: 1rem 1rem;
+  &.is-small {
+    padding: 0.6em 0.5rem;
   }
-  &:focus, &:active {
-    box-shadow: none;
-    border: 2px solid $primary;
+  &.is-medium {
+    padding: 1.4em 1rem;
+  }
+  &.is-large {
+    padding: 1.8em 1.2rem;
   }
 }

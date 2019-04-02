@@ -27,6 +27,18 @@
         input {
           margin-bottom: 10px;
         }
+        button {
+          margin-top: 20px;
+          width: 170px;
+        }
+      }
+      form {
+        padding-bottom: 30px;
+      }
+      .new-account {
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding: 20px 0px 30px;
       }
     }
   }
