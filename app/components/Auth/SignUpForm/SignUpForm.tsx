@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
-import { Formik, FormikActions, FormikProps, Form, Field, FieldProps } from 'formik';
+import { Formik, FormikActions, Form, Field, FieldProps } from 'formik';
+import * as Yup from 'yup';
+
 import { IAuthModes } from '../config';
 
 export interface ISignUpFormProps {
@@ -14,6 +16,20 @@ interface SignUpFormValues {
   email: string;
   password: string;
 }
+
+const SignupSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  lastName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+});
 
 export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
 
