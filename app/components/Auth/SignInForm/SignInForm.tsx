@@ -16,7 +16,7 @@ export const SignInForm = ({ onModeChange }: ISignInFormProps) => {
         <Input type="email" placeholder="Email" size={IInputSizes.medium} />
         <Input  type="password" placeholder="Password" size={IInputSizes.medium} />
         <div className="has-text-centered">
-          <Button className="is-size-5" type="submit" styleType={IButtonTypes.primary} size={IButtonSizes.medium}>
+          <Button type="submit" styleType={IButtonTypes.primary} size={IButtonSizes.medium}>
             SIGN IN
           </Button>
         </div>
@@ -27,10 +27,8 @@ export const SignInForm = ({ onModeChange }: ISignInFormProps) => {
         </p>
         <div className="has-text-centered">
           <Button
-            className="is-size-5"
             type="button"
             styleType={IButtonTypes.success}
-            size={IButtonSizes.medium}
             onClick={() => onModeChange(IAuthModes.signUp)}
           >
             SIGN UP

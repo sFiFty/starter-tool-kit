@@ -24,16 +24,19 @@
         h1 {
           margin-bottom: 20px;
         }
-        input {
-          margin-bottom: 10px;
-        }
-        button {
-          margin-top: 20px;
-          width: 170px;
+        form {
+          padding-bottom: 30px;
+          input {
+            margin-bottom: 10px;
+          }
+          button[type="submit"] {
+            margin-top: 20px;
+            width: 170px;
+          }
         }
       }
-      form {
-        padding-bottom: 30px;
+      button[type="button"] {
+        margin-top: 20px;
       }
       .new-account {
         border-top: 1px solid $border-color;

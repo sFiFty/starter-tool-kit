@@ -10,7 +10,7 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
   styleType?: IButtonTypes;
 }
 
-const DEFAULT_CLASS = 'button';
+const DEFAULT_CLASS = 'button st-button';
 
 export const Button = ({ className = '', size, children, styleType, ...rest }: IButtonProps) => {
   let classNames = addClassNames(className, DEFAULT_CLASS);
