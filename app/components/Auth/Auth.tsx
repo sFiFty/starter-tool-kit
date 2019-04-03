@@ -15,7 +15,7 @@ export interface ISignInFormPropsProps {
 
 export const Auth = ({ mode }: ISignInFormPropsProps) => {
   const [isModalShown, showModal] = React.useState(true);
-  const [onModeChange, authMode] = React.useState(mode);
+  const [authMode, onModeChange] = React.useState(mode);
 
   const onModalVisibilityChange = (isShown: boolean) => {
     if (!isShown) {
@@ -37,13 +37,13 @@ export const Auth = ({ mode }: ISignInFormPropsProps) => {
           <div className="auth">
             <div className="inner-content">
               {
-                mode === IAuthModes.signIn && (
+                authMode === IAuthModes.signIn && (
                   <SignInForm onModeChange={onModeChange} />
                 )
               }
               {
-                mode === IAuthModes.signUp && (
-                  <SignUpForm />
+                authMode === IAuthModes.signUp && (
+                  <SignUpForm onModeChange={onModeChange} />
                 )
               }
             </div>

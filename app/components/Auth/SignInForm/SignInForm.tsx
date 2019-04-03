@@ -2,11 +2,13 @@ import * as React from 'react';
 
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
+import { IAuthModes } from '../config';
 
 export interface ISignInFormProps {
+  onModeChange(mode: IAuthModes): void;
 }
 
-export const SignInForm = (props: ISignInFormProps) => {
+export const SignInForm = ({ onModeChange }: ISignInFormProps) => {
   return (
     <>
       <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Hello again!</h1>
@@ -24,7 +26,13 @@ export const SignInForm = (props: ISignInFormProps) => {
           Don’t have an account?
         </p>
         <div className="has-text-centered">
-          <Button className="is-size-5" type="button" styleType={IButtonTypes.success} size={IButtonSizes.medium}>
+          <Button
+            className="is-size-5"
+            type="button"
+            styleType={IButtonTypes.success}
+            size={IButtonSizes.medium}
+            onClick={() => onModeChange(IAuthModes.signUp)}
+          >
             SIGN UP
           </Button>
         </div>              
