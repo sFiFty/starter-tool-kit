@@ -1,9 +1,9 @@
 import * as React from 'react';
+import * as Yup from 'yup';
+import { Formik, FormikActions, Form, Field, FieldProps } from 'formik';
 
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
-import { Formik, FormikActions, Form, Field, FieldProps } from 'formik';
-import * as Yup from 'yup';
 
 import { IAuthModes } from '../config';
 
@@ -17,24 +17,23 @@ interface SignUpFormValues {
   password: string;
 }
 
-const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  lastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+const ValidationSchema = Yup.object().shape({
+  userName: Yup.string()
+    .max(50, 'userName has not to be longer than 50 characters!')
+    .required('Username is required!'),
   email: Yup.string()
-    .email('Invalid email')
-    .required('Required'),
+    .email('E-mail is not valid!')
+    .required('E-mail is required!'),
+  password: Yup.string()
+    .min(6, 'Password has to be longer than 6 characters!')  
+    .required('Password is required!')
 });
 
 export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
 
   const onSumbit = (values: SignUpFormValues, actions: FormikActions<SignUpFormValues>) => {
     console.log(values);
+    console.log(actions);
   }
 
   return (
@@ -43,6 +42,7 @@ export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
       <Formik
         initialValues={{ userName: '', email: '', password: '' }}
         onSubmit={onSumbit}
+        validationSchema={ValidationSchema} 
         render={() => (
           <Form>
             <Field

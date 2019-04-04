@@ -14,12 +14,12 @@ export interface IInputProps {
 const DEFAULT_CLASSES = 'input st-input';
 const DEFAULT_TYPE = 'text';
 
-export const Input = ({ type = DEFAULT_TYPE, placeholder = '', className, size }: IInputProps) => {
+export const Input = ({ type = DEFAULT_TYPE, placeholder = '', className, size, ...rest }: IInputProps) => {
   let classNames = addClassNames(className, DEFAULT_CLASSES);
 
   const inputTypeClass = getInputSize(size);
   classNames = addClassNames(classNames, inputTypeClass);
   return (
-    <input autoComplete="new-password" className={classNames} type={type} placeholder={placeholder} />
+    <input autoComplete="new-password" className={classNames} type={type} placeholder={placeholder} {...rest} />
   );
 }
