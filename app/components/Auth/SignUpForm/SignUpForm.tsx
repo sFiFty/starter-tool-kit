@@ -12,15 +12,19 @@ export interface ISignUpFormProps {
 }
 
 interface SignUpFormValues {
-  userName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
 }
 
 const ValidationSchema = Yup.object().shape({
-  userName: Yup.string()
-    .max(50, 'userName has not to be longer than 50 characters!')
-    .required('Username is required!'),
+  firstName: Yup.string()
+    .max(50, 'First name has not to be longer than 50 characters!')
+    .required('First name is required!'),
+  lastName: Yup.string()
+    .max(50, 'Last name has not to be longer than 50 characters!')
+    .required('Last name is required!'),
   email: Yup.string()
     .email('E-mail is not valid!')
     .required('E-mail is required!'),
@@ -40,37 +44,53 @@ export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
     <>
       <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Create your new account</h1>
       <Formik
-        initialValues={{ userName: '', email: '', password: '' }}
+        initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
         onSubmit={onSumbit}
-        validationSchema={ValidationSchema} 
-        render={() => (
-          <Form>
-            <Field
-              name="userName"
-              render={({ field }: FieldProps<SignUpFormValues>) => (
-                <Input type="text" {...field} placeholder="Username" size={IInputSizes.medium} />
-              )}
-            />
-            <Field
-              name="email"
-              render={({ field }: FieldProps<SignUpFormValues>) => (
-                <Input type="email" {...field} placeholder="Email" size={IInputSizes.medium} />
-              )}
-            />
-            <Field
-              name="password"
-              render={({ field }: FieldProps<SignUpFormValues>) => (
-                <Input  type="password" {...field} placeholder="Password" size={IInputSizes.medium} />
-              )}
-            />
-            <div className="has-text-centered">
-              <Button type="submit" styleType={IButtonTypes.primary} size={IButtonSizes.medium}>
-                SIGN UP
-              </Button>
-            </div>
-          </Form>
-        )}
-      />
+        validateOnBlur={false}
+        validateOnChange={false}
+        validationSchema={ValidationSchema}
+      >
+      {
+        ({ errors, touched, isSubmitting }) => {
+          console.log(errors);
+          return (
+            <Form>
+              <div className="names is-flex">
+                <Field
+                  name="firstName"
+                  render={({ field }: FieldProps<SignUpFormValues>) => (
+                    <Input type="text" error={errors.firstName} placeholder="First name" size={IInputSizes.medium} {...field} />
+                  )}
+                />
+                <Field
+                  name="lastName"
+                  render={({ field }: FieldProps<SignUpFormValues>) => (
+                    <Input type="text" error={errors.lastName} placeholder="Last name" size={IInputSizes.medium} {...field} />
+                  )}
+                />
+              </div>
+              <Field
+                name="email"
+                render={({ field }: FieldProps<SignUpFormValues>) => (
+                  <Input type="email" {...field} placeholder="Email" size={IInputSizes.medium} />
+                )}
+              />
+              <Field
+                name="password"
+                render={({ field }: FieldProps<SignUpFormValues>) => (
+                  <Input  type="password" {...field} placeholder="Password" size={IInputSizes.medium} />
+                )}
+              />
+              <div className="has-text-centered">
+                <Button type="submit" styleType={IButtonTypes.primary} size={IButtonSizes.medium}>
+                  SIGN UP
+                </Button>
+              </div>
+            </Form>
+          )
+        }
+      }
+      </Formik>
       <div className="new-account">
         <p className="has-text-centered is-size-5">
           Already have an account?
