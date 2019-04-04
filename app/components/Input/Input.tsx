@@ -19,11 +19,11 @@ export const Input = (
   { type = DEFAULT_TYPE, placeholder = '', className, size, error, ...rest }: IInputProps
   ) => {
   let classNames = addClassNames(className, DEFAULT_CLASSES);
-
   const inputTypeClass = getInputSize(size);
   classNames = addClassNames(classNames, inputTypeClass);
+  if (error) addClassNames(classNames, 'is-danger');
   return (
-    <div className="input-container">
+    <div className={`input-container ${error && 'has-error'}`}>
       <input
         autoComplete="new-password"
         className={classNames}

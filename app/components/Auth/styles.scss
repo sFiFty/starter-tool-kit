@@ -26,12 +26,12 @@
         }
         form {
           padding-bottom: 30px;
-          input {
-            margin-bottom: 10px;
-          }
           button[type="submit"] {
             margin-top: 20px;
             width: 170px;
+          }
+          .input-container {
+            margin: 0 10px;
           }
         }
       }

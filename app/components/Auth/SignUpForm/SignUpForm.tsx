@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Formik, FormikActions, Form, Field, FieldProps } from 'formik';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
@@ -16,6 +18,7 @@ interface SignUpFormValues {
   lastName: string;
   email: string;
   password: string;
+  passwordConfirmation: string;
 }
 
 const ValidationSchema = Yup.object().shape({
@@ -36,22 +39,24 @@ const ValidationSchema = Yup.object().shape({
 export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
 
   const onSumbit = (values: SignUpFormValues, actions: FormikActions<SignUpFormValues>) => {
-    console.log(values);
-    console.log(actions);
+    firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+    .catch((error) => {
+      console.log(error.message);
+    });
   }
 
   return (
     <>
       <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Create your new account</h1>
       <Formik
-        initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
+        initialValues={{ firstName: '', lastName: '', email: '', password: '', passwordConfirmation: '' }}
         onSubmit={onSumbit}
         validateOnBlur={false}
         validateOnChange={false}
         validationSchema={ValidationSchema}
       >
       {
-        ({ errors, touched, isSubmitting }) => {
+        ({ errors }) => {
           console.log(errors);
           return (
             <Form>
@@ -72,13 +77,13 @@ export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
               <Field
                 name="email"
                 render={({ field }: FieldProps<SignUpFormValues>) => (
-                  <Input type="email" {...field} placeholder="Email" size={IInputSizes.medium} />
+                  <Input type="email" error={errors.email} placeholder="Email" size={IInputSizes.medium} {...field}/>
                 )}
               />
               <Field
                 name="password"
                 render={({ field }: FieldProps<SignUpFormValues>) => (
-                  <Input  type="password" {...field} placeholder="Password" size={IInputSizes.medium} />
+                  <Input  type="password" error={errors.password} placeholder="Password" size={IInputSizes.medium} {...field} />
                 )}
               />
               <div className="has-text-centered">

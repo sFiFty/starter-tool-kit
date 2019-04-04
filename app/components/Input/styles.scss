@@ -1,7 +1,12 @@
 @import '../../styles/colors.scss';
 
 .input-container {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  .error {
+    color: $danger;
+    font-size: $size-7;
+    height: 5px;
+  }
   input.input.st-input {
     font-size: $size-6;
     padding: 1rem 1rem;
@@ -15,4 +20,8 @@
       padding: 1.8em 1.2rem;
     }
   }
+}
+
+.input-container.has-error {
+  padding-bottom: 15px;
 }
