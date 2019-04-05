@@ -8,8 +8,12 @@ interface ILayoutProps {
   children: any;
 }
 
+interface INotificationContainer extends HTMLDivElement {
+  addNotification(config: any): void;
+}
+
 export const Layout = (props: ILayoutProps) => {
-  const notificationElement = React.useRef<HTMLDivElement, {add}>();
+  const notificationElement = React.useRef<INotificationContainer>();
   const addNotification = () => {
     if (notificationElement && notificationElement.current) {
       notificationElement.current.addNotification({
@@ -17,7 +21,7 @@ export const Layout = (props: ILayoutProps) => {
         title: "Custom",
         message: "Notifications can be customized to suit your needs",
         container: "top-right"
-      }));
+      });
     }
   }
   return (
