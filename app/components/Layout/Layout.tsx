@@ -3,6 +3,7 @@ import ReactNotification from "react-notifications-component";
 
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { withAuthProfile } from 'containers/WithAuthProfile';
 
 interface ILayoutProps {
   children: any;
@@ -12,7 +13,7 @@ interface INotificationContainer extends HTMLDivElement {
   addNotification(config: any): void;
 }
 
-export const Layout = (props: ILayoutProps) => {
+const LayoutComponent = (props: ILayoutProps) => {
   const notificationElement = React.useRef<INotificationContainer>();
   const addNotification = () => {
     if (notificationElement && notificationElement.current) {
@@ -39,3 +40,5 @@ export const Layout = (props: ILayoutProps) => {
     </>
   );
 }
+
+export const Layout = withAuthProfile(LayoutComponent);

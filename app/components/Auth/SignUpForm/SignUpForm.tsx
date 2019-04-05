@@ -40,8 +40,6 @@ const ValidationSchema = Yup.object().shape({
 const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) => {
 
   const onSumbit = (values: SignUpFormValues, actions: FormikActions<SignUpFormValues>) => {
-    showMessage();
-    return
     firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
     .then(() => {
       showMessage();

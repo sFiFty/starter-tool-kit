@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link'
 
+import { AuthUser } from '../AuthUser';
 import { routes } from 'utils/routes';
 
 export const Header = () => {
@@ -30,6 +31,7 @@ export const Header = () => {
                 <a className="navbar-item">Administration</a>
               </Link>
             </div>
+            <AuthUser />
           </div>
         </nav>
       </div>

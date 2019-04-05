@@ -1,0 +1,1 @@
+export { withAuthProfile } from './WithAuthProfile';
