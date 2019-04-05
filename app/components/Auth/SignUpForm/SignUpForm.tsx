@@ -8,8 +8,10 @@ import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
 
 import { IAuthModes } from '../config';
+import { withNotification } from 'containers/WithNotification';
 
 export interface ISignUpFormProps {
+  showMessage(): void;
   onModeChange(mode: IAuthModes): void;
 }
 
@@ -18,7 +20,6 @@ interface SignUpFormValues {
   lastName: string;
   email: string;
   password: string;
-  passwordConfirmation: string;
 }
 
 const ValidationSchema = Yup.object().shape({
@@ -36,10 +37,15 @@ const ValidationSchema = Yup.object().shape({
     .required('Password is required!')
 });
 
-export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
+const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) => {
 
   const onSumbit = (values: SignUpFormValues, actions: FormikActions<SignUpFormValues>) => {
+    showMessage();
+    return
     firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+    .then(() => {
+      showMessage();
+    })
     .catch((error) => {
       console.log(error.message);
     });
@@ -49,7 +55,7 @@ export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
     <>
       <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Create your new account</h1>
       <Formik
-        initialValues={{ firstName: '', lastName: '', email: '', password: '', passwordConfirmation: '' }}
+        initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
         onSubmit={onSumbit}
         validateOnBlur={false}
         validateOnChange={false}
@@ -113,3 +119,5 @@ export const SignUpForm = ({ onModeChange }: ISignUpFormProps) => {
     </>
   )
 }
+
+export const SignUpForm = withNotification(SignUpFormComponent);
