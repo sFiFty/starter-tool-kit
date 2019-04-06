@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { withAuthProfile } from 'containers/WithAuthProfile';
 
 export interface IAppProps {
 }
 
 const AuthUserComponent = (props: IAppProps) => {
-  console.log(props);
   return (
     <div>
       a
@@ -13,4 +11,4 @@ const AuthUserComponent = (props: IAppProps) => {
   );
 }
 
-export const AuthUser = withAuthProfile(AuthUserComponent);
+export const AuthUser = AuthUserComponent;
