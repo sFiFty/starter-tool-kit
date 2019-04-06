@@ -1,8 +1,6 @@
 const config = require('config');
 import Document, { Head, Main, NextScript } from 'next/document'
 import { setConfig } from 'next/config';
-
-import { Layout } from 'components/Layout';
 import { Script } from 'components/Script';
 import { IConfigTypes } from 'types/core';
 
@@ -43,10 +41,8 @@ export default class MyDocument extends Document {
           <meta name="author" content="Oleksandr Rudin" />
         </Head>
         <body className="app">
-          <Layout>
             <Main />
             <NextScript />
-          </Layout>
         </body>
       </html>
     )
