@@ -1,13 +1,15 @@
 import * as React from 'react';
 
 import { Administration } from 'screens/Administration';
-import { withAuth } from 'containers/WithAuth';
+import { Layout } from 'components/Layout';
 
 const administration = (props: any) => {
   console.log(props)
   return (
-    <Administration />
+    <Layout>
+      <Administration />
+    </Layout>
   )
 }
 
-export default withAuth(administration);
+export default administration;
