@@ -2,4 +2,9 @@
   display: flex;
   align-items: center;
   height: 100%;
+  .auth-buttons {
+    button:last-child {
+      margin-left: 5px;
+    }
+  }
 }

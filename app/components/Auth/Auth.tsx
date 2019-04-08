@@ -11,18 +11,22 @@ import './styles.scss';
 
 export interface ISignInFormPropsProps {
   mode: IAuthModes;
+  onClose?(): void; 
 }
 
-export const Auth = ({ mode }: ISignInFormPropsProps) => {
+export const Auth = ({ mode, onClose }: ISignInFormPropsProps) => {
   const [isModalShown, showModal] = React.useState(true);
   const [authMode, onModeChange] = React.useState(mode);
 
   const onModalVisibilityChange = (isShown: boolean) => {
-    if (!isShown) {
+    if (!isShown && !onClose) {
       Router.push(routes.home)
     }
+    if (onClose) {
+      onClose();
+      return;
+    }
     showModal(isShown);
-
   }
 
   return (
