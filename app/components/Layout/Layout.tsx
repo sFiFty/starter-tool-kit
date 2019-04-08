@@ -42,13 +42,18 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
     });
   }, [0]);
 
-  const addNotification = () => {
+  const showMessage = () => {
     if (notificationElement && notificationElement.current) {
       notificationElement.current.addNotification({
-        type: "awesome",
-        title: "Custom",
-        message: "Notifications can be customized to suit your needs",
-        container: "top-right"
+        title: "Awesomeness",
+        message: "Awesome Notifications!",
+        type: "success",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: { duration: 2000 },
+        dismissable: { click: true }
       });
     }
   }
@@ -60,12 +65,14 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
   if (isSecure && !isAuthorized) {
     return <Auth mode={IAuthModes.signIn} />
   }
+
+  const componentChildren = React.Children.map(children, (child) => React.cloneElement(child, { authUser, showMessage }));
   return (
     <>
       <Header />
       <section>
         <div className="container">
-          {children}
+          {componentChildren}
         </div>
       </section>
       <Footer />
