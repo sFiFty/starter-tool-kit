@@ -13,6 +13,9 @@ const CONTAINER_CLASS = 'dropdown';
 export const Dropdown = ({ children, trigger }: IDropdownProps) => {
   const [isDropdownShown, showDropdown] = React.useState<boolean>(false);
   React.useEffect(() => {
+    /**
+     * if user clicks outside of dropdown container - hide dropdown
+     */
     document.addEventListener('click', (event: Event) => {
       const target = event.target as HTMLDivElement;
       if (isParentHasClass(target, CONTAINER_CLASS)) return;

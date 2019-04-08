@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link'
 
-import { AuthUser } from '../AuthUser';
+import { AuthUser } from './AuthUser';
 import { routes } from 'utils/routes';
 
 interface IHeaderProps {
