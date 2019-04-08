@@ -9,16 +9,18 @@ const { publicRuntimeConfig } = getConfig();
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { Loader } from 'components/Loader';
+import { Auth, IAuthModes } from 'components/Auth';
 
 interface ILayoutProps {
   children: any;
+  isSecure?: boolean;
 }
 
 interface INotificationContainer extends HTMLDivElement {
   addNotification(config: any): void;
 }
 
-export const Layout = (props: ILayoutProps) => {
+export const Layout = ({ isSecure, children }: ILayoutProps) => {
   const notificationElement = React.useRef<INotificationContainer>();
   const [authUser, setUser] = React.useState<firebase.User | null>(null);
   const [isLoading, setLoading] = React.useState<boolean>(true);
@@ -26,7 +28,7 @@ export const Layout = (props: ILayoutProps) => {
 
   React.useEffect(() => {
     const { FIREBASE_CONFIG } = publicRuntimeConfig;
-    firebase.initializeApp(FIREBASE_CONFIG);
+    if (firebase.apps.length === 0) firebase.initializeApp(FIREBASE_CONFIG);
     firebase.auth().onAuthStateChanged((authUser: firebase.User | null) => {
       if (authUser) {
         setUser(authUser);
@@ -55,12 +57,15 @@ export const Layout = (props: ILayoutProps) => {
       <Loader withContainer />
     )
   }
+  if (isSecure && !isAuthorized) {
+    return <Auth mode={IAuthModes.signIn} />
+  }
   return (
     <>
       <Header />
       <section>
         <div className="container">
-          {props.children}
+          {children}
         </div>
       </section>
       <Footer />

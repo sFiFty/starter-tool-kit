@@ -4,9 +4,8 @@ import { Administration } from 'screens/Administration';
 import { Layout } from 'components/Layout';
 
 const administration = (props: any) => {
-  console.log(props)
   return (
-    <Layout>
+    <Layout isSecure>
       <Administration />
     </Layout>
   )
