@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-export const Administration = (props) => {
+export const Administration = () => {
   
   return (
     <div>
-      <button onClick={props.showMessage}>click</button>
       Administration
     </div>
   );

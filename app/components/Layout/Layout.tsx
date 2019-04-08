@@ -26,6 +26,9 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
   const [isLoading, setLoading] = React.useState<boolean>(true);
   const [isAuthorized, setIsAuthorized] = React.useState<boolean>(true);
 
+  /**
+   * Initialize firebase auth and check if user is authorized
+   */
   React.useEffect(() => {
     const { FIREBASE_CONFIG } = publicRuntimeConfig;
     if (firebase.apps.length === 0) firebase.initializeApp(FIREBASE_CONFIG);
@@ -42,6 +45,9 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
     });
   }, [0]);
 
+  /**
+   * notify user about some changes
+   */
   const showMessage = () => {
     if (notificationElement && notificationElement.current) {
       notificationElement.current.addNotification({
@@ -57,6 +63,7 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
       });
     }
   }
+
   if (isLoading) {
     return (
       <Loader withContainer />
@@ -69,7 +76,7 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
   const componentChildren = React.Children.map(children, (child) => React.cloneElement(child, { authUser, showMessage }));
   return (
     <>
-      <Header />
+      <Header authUser={authUser} />
       <section>
         <div className="container">
           {componentChildren}

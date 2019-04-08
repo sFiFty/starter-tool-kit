@@ -1,5 +1,5 @@
 import CloseIcon from 'static/icons/close.svg';
-import ArrowBottomIcon from 'static/icons/arrow-bottom/svg';
+import ArrowBottomIcon from 'static/icons/arrow-bottom.svg';
 
 const close: string = CloseIcon;
 const arrowBottom: string = ArrowBottomIcon;

@@ -4,7 +4,11 @@ import Link from 'next/link'
 import { AuthUser } from '../AuthUser';
 import { routes } from 'utils/routes';
 
-export const Header = () => {
+interface IHeaderProps {
+  authUser: firebase.User | null;
+}
+
+export const Header = ({ authUser }: IHeaderProps) => {
   return (
     <header>
       <div className="container">
@@ -31,7 +35,7 @@ export const Header = () => {
                 <a className="navbar-item">Administration</a>
               </Link>
             </div>
-            <AuthUser />
+            <AuthUser authUser={authUser} />
           </div>
         </nav>
       </div>

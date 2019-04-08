@@ -11,11 +11,11 @@ export interface IIconProps {
 
 const DEFAULT_CLASS = '';
 
-export function Icon ({ name, className = '' }: IIconProps) {
+export function Icon ({ name, className = '', ...rest }: IIconProps) {
   const classNames = addClassNames(className, DEFAULT_CLASS);
   const icon = getIconByName(name);
   return (
-    <span className="icon-container">
+    <span className="icon-container" {...rest}>
       <img className={classNames} src={icon} alt={name} />
     </span>
   );
