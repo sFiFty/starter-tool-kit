@@ -1,7 +1,7 @@
 export const texts = {
   h1: {
-    en: '',
-    ua: '',
+    en: 'Hello again!',
+    ua: 'І знову привіт',
   },
   emailInputPlaceholder: {
     en: '',
