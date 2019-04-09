@@ -35,7 +35,7 @@ export const Auth = ({ mode, onClose }: ISignInFormPropsProps) => {
         <div className="auth-modal-content">
           <div className="landing">
             <div className="inner-content">
-              Some landing content
+              Some landing content 
             </div>
           </div>
           <div className="auth">
