@@ -6,6 +6,7 @@ import 'firebase/auth';
 
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
+import { success, error } from 'utils/messages';
 import { IAuthModes } from '../config';
 
 export interface ISignInFormProps {
@@ -32,13 +33,12 @@ export const SignInForm = ({ onModeChange, showMessage }: ISignInFormProps) => {
   const onSumbit = (values: SignInFormValues) => {
     firebase.auth().signInWithEmailAndPassword(values.email, values.password)
     .then(() => {
-      showMessage();
+      success('Success!', 'You are successfully logged in to the system');
     })
     .catch((error) => {
       console.log(error.message);
     });
   }
-
   return (
     <>
       <h1 className="is-size-2 is-size-3-mobile has-text-black has-text-centered">Hello again!</h1>

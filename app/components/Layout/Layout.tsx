@@ -10,6 +10,7 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { Loader } from 'components/Loader';
 import { Auth, IAuthModes } from 'components/Auth';
+import { saveMessageContainer } from 'utils/messages';
 
 interface ILayoutProps {
   children: any;
@@ -30,6 +31,7 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
    * Initialize firebase auth and check if user is authorized
    */
   React.useEffect(() => {
+    saveMessageContainer(notificationElement);
     const { FIREBASE_CONFIG } = publicRuntimeConfig;
     if (firebase.apps.length === 0) firebase.initializeApp(FIREBASE_CONFIG);
     firebase.auth().onAuthStateChanged((authUser: firebase.User | null) => {
@@ -46,14 +48,14 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
   }, [0]);
 
   /**
-   * notify user about some changes
+   * notify user about some errors
    */
-  const showMessage = () => {
+  const showErrorMessage = (title: string, message: string) => {
     if (notificationElement && notificationElement.current) {
       notificationElement.current.addNotification({
-        title: "Awesomeness",
-        message: "Awesome Notifications!",
-        type: "success",
+        title,
+        message,
+        type: "danger",
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],
@@ -73,7 +75,7 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
     return <Auth mode={IAuthModes.signIn} />
   }
 
-  const componentChildren = React.Children.map(children, (child) => React.cloneElement(child, { authUser, showMessage }));
+  const componentChildren = React.Children.map(children, (child) => React.cloneElement(child, { authUser }));
   return (
     <>
       <Header authUser={authUser} />
