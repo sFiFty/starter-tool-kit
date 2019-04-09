@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Yup from 'yup';
-import { Formik, FormikActions, Form, Field, FieldProps } from 'formik';
+import { Formik, Form, Field, FieldProps } from 'formik';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -39,7 +39,7 @@ const ValidationSchema = Yup.object().shape({
 
 const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) => {
 
-  const onSumbit = (values: SignUpFormValues, actions: FormikActions<SignUpFormValues>) => {
+  const onSumbit = (values: SignUpFormValues) => {
     firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
     .then(() => {
       showMessage();
@@ -61,7 +61,6 @@ const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) =>
       >
       {
         ({ errors }) => {
-          console.log(errors);
           return (
             <Form>
               <div className="names is-flex">
