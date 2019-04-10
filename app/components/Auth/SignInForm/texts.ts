@@ -4,16 +4,16 @@ export const texts = {
     ua: 'І знову привіт',
   },
   emailInputPlaceholder: {
-    en: '',
-    ua: '',
+    en: 'Email',
+    ua: 'Електронна пошта',
   },
   emailRequiredValidationError: {
-    en: '',
-    ua: '',
+    en: 'Email is required',
+    ua: "Електронна скринька - обов'язкове поле",
   },
   emailFormatValidationError: {
-    en: '',
-    ua: '',
+    en: 'Email is not valid',
+    ua: 'Введіть корректний адрес електронної скриньки',
   },
   passwordInputPlaceholder: {
     en: '',
