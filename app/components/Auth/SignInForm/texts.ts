@@ -16,20 +16,20 @@ export const texts = {
     ua: 'Введіть корректний адрес електронної скриньки',
   },
   passwordInputPlaceholder: {
-    en: '',
-    ua: '',
+    en: 'Password',
+    ua: 'Пароль',
   },
   passwordMinCharValidationError: {
-    en: '',
-    ua: '',
+    en: 'Password must contain 6 characters or more!',
+    ua: 'Пароль повинен складатись з 6ти або більше символів!',
   },
   passwordRequiredValidationError: {
-    en: '',
-    ua: '',
+    en: 'Password is required!',
+    ua: "Пароль - обов'язкове поле",
   },
   submitButton: {
-    en: '',
-    ua: '',
+    en: 'Login',
+    ua: 'Увійти',
   },
   changeAuthMethodTitle: {
     en: '',
