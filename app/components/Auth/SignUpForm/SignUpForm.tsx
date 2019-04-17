@@ -67,26 +67,54 @@ const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) =>
                 <Field
                   name="firstName"
                   render={({ field }: FieldProps<SignUpFormValues>) => (
-                    <Input type="text" error={errors.firstName} placeholder="First name" size={IInputSizes.medium} {...field} />
+                    <Input
+                      type="text"
+                      noAutocomplete
+                      error={errors.firstName}
+                      placeholder="First name"
+                      size={IInputSizes.medium}
+                      {...field}
+                    />
                   )}
                 />
                 <Field
                   name="lastName"
                   render={({ field }: FieldProps<SignUpFormValues>) => (
-                    <Input type="text" error={errors.lastName} placeholder="Last name" size={IInputSizes.medium} {...field} />
+                    <Input
+                      noAutocomplete
+                      type="text"
+                      error={errors.lastName}
+                      placeholder="Last name"
+                      size={IInputSizes.medium}
+                      {...field}
+                    />
                   )}
                 />
               </div>
               <Field
                 name="email"
                 render={({ field }: FieldProps<SignUpFormValues>) => (
-                  <Input type="email" error={errors.email} placeholder="Email" size={IInputSizes.medium} {...field}/>
+                  <Input
+                    noAutocomplete
+                    type="email"
+                    error={errors.email}
+                    placeholder="Email"
+                    size={IInputSizes.medium}
+                    {...field}
+                  />
                 )}
               />
               <Field
                 name="password"
                 render={({ field }: FieldProps<SignUpFormValues>) => (
-                  <Input  type="password" error={errors.password} placeholder="Password" size={IInputSizes.medium} {...field} />
+                  <Input
+                    noAutocomplete
+                    type="password"
+                    error={errors.password}
+                    placeholder="Password"
+                    size={IInputSizes.medium}
+                    {...field}
+                  />
                 )}
               />
               <div className="has-text-centered">

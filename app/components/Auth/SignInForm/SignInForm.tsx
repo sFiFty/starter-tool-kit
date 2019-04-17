@@ -11,6 +11,7 @@ import { IAuthModes } from '../config';
 
 export interface ISignInFormProps {
   onModeChange(mode: IAuthModes): void;
+  onModalVisibilityChange(isShown: boolean) : void;
 }
 
 interface SignInFormValues {
@@ -27,12 +28,13 @@ const ValidationSchema = Yup.object().shape({
     .required('Password is required!')
 });
 
-export const SignInForm = ({ onModeChange }: ISignInFormProps) => {
+export const SignInForm = ({ onModeChange, onModalVisibilityChange }: ISignInFormProps) => {
 
   const onSumbit = (values: SignInFormValues) => {
     firebase.auth().signInWithEmailAndPassword(values.email, values.password)
     .then(() => {
       success('Success!', 'You are successfully logged in to the system');
+      onModalVisibilityChange(false);
     })
     .catch((err) => {
       error('Error', err.message)

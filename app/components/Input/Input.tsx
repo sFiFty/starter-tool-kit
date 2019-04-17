@@ -10,13 +10,14 @@ export interface IInputProps {
   placeholder?: string;
   className?: string;
   error?: string;
+  noAutocomplete: boolean;
 }
 
 const DEFAULT_CLASSES = 'input st-input';
 const DEFAULT_TYPE = 'text';
 
 export const Input = (
-  { type = DEFAULT_TYPE, placeholder = '', className, size, error, ...rest }: IInputProps
+  { type = DEFAULT_TYPE, placeholder = '', className, size, error, noAutocomplete, ...rest }: IInputProps
   ) => {
   let classNames = addClassNames(className, DEFAULT_CLASSES);
   const inputTypeClass = getInputSize(size);
@@ -25,7 +26,7 @@ export const Input = (
   return (
     <div className={`input-container ${error && 'has-error'}`}>
       <input
-        autoComplete="new-password"
+        autoComplete={noAutocomplete ? 'new-password' : undefined}
         className={classNames}
         type={type}
         placeholder={placeholder}

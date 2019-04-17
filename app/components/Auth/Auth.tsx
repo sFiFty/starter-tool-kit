@@ -42,12 +42,12 @@ export const Auth = ({ mode, onClose }: ISignInFormPropsProps) => {
             <div className="inner-content">
               {
                 authMode === IAuthModes.signIn && (
-                  <SignInForm onModeChange={onModeChange} />
+                  <SignInForm onModeChange={onModeChange} onModalVisibilityChange={onModalVisibilityChange} />
                 )
               }
               {
                 authMode === IAuthModes.signUp && (
-                  <SignUpForm onModeChange={onModeChange} />
+                  <SignUpForm onModeChange={onModeChange} onModalVisibilityChange={onModalVisibilityChange} />
                 )
               }
             </div>
