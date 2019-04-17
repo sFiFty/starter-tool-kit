@@ -10,6 +10,9 @@ const api = (server) => {
     res.type('text/xml');
     res.sendFile(path.join(__dirname, '../static', 'sitemap.xml'))
   });
+  server.get('/api/test', (req, res) => {
+    res.send('hello world');
+  })
   server.use(favicon(path.join(__dirname, '../static', 'favicon.ico')));
 }
 

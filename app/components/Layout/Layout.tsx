@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactNotification from "react-notifications-component";
+import ReactNotification from 'react-notifications-component';
 import getConfig from 'next/config';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
@@ -29,9 +29,10 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
 
   /**
    * Initialize firebase auth and check if user is authorized
+   * Save message container to use notifications in the system
    */
   React.useEffect(() => {
-    saveMessageContainer(notificationElement);
+    if (notificationElement) saveMessageContainer(notificationElement);
     const { FIREBASE_CONFIG } = publicRuntimeConfig;
     if (firebase.apps.length === 0) firebase.initializeApp(FIREBASE_CONFIG);
     firebase.auth().onAuthStateChanged((authUser: firebase.User | null) => {
@@ -46,25 +47,6 @@ export const Layout = ({ isSecure, children }: ILayoutProps) => {
       }
     });
   }, [0]);
-
-  /**
-   * notify user about some errors
-   */
-  const showErrorMessage = (title: string, message: string) => {
-    if (notificationElement && notificationElement.current) {
-      notificationElement.current.addNotification({
-        title,
-        message,
-        type: "danger",
-        insert: "top",
-        container: "top-right",
-        animationIn: ["animated", "fadeIn"],
-        animationOut: ["animated", "fadeOut"],
-        dismiss: { duration: 2000 },
-        dismissable: { click: true }
-      });
-    }
-  }
 
   if (isLoading) {
     return (
