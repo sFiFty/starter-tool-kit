@@ -10,7 +10,6 @@ import { success, error } from 'utils/messages';
 import { IAuthModes } from '../config';
 
 export interface ISignInFormProps {
-  showMessage(): void;
   onModeChange(mode: IAuthModes): void;
 }
 
@@ -28,15 +27,15 @@ const ValidationSchema = Yup.object().shape({
     .required('Password is required!')
 });
 
-export const SignInForm = ({ onModeChange, showMessage }: ISignInFormProps) => {
+export const SignInForm = ({ onModeChange }: ISignInFormProps) => {
 
   const onSumbit = (values: SignInFormValues) => {
     firebase.auth().signInWithEmailAndPassword(values.email, values.password)
     .then(() => {
       success('Success!', 'You are successfully logged in to the system');
     })
-    .catch((error) => {
-      console.log(error.message);
+    .catch((err) => {
+      error('Error', err.message)
     });
   }
   return (
