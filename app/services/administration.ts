@@ -1,4 +1,4 @@
-const PATH = 'http://localhost:3005/api/administration';
+const PATH = '/api/administration';
 import { request } from 'utils/request';
 
 export const administrationApi = {

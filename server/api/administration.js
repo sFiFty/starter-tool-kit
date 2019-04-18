@@ -10,7 +10,7 @@ const administration = (server) => {
     }));
   })
   server.post('/api/administration/appConfig', (req, res) => {
-    const { name } = req.body;
+    const { config } = req.body;
     console.log(name);
     return;
     const AppConfig = new AppConfig({ name });

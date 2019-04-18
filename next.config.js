@@ -8,6 +8,7 @@ const images = require('next-images');
 
 module.exports = withPlugins([typescript, css, sass, images], {
   publicRuntimeConfig: {
-    FIREBASE_CONFIG: config.FIREBASE_CONFIG
+    FIREBASE_CONFIG: config.FIREBASE_CONFIG,
+    PORT: config.port
   }
 })
