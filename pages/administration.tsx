@@ -5,6 +5,7 @@ import { Administration } from 'screens/Administration';
 import { Layout } from 'components/Layout';
 
 const administration = (props: any) => {
+  console.log(props);
   return (
     <Layout isSecure>
       <Administration { ...props } />
@@ -16,9 +17,16 @@ const administration = (props: any) => {
 administration.getInitialProps = async function() {
   const res = await fetch('http://localhost:3005/api/test');
   const data = await res.text();
-
   return {
     data: data,
+    updateName: () => {
+      fetch('/api/test', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+      }});
+    },
   }
 
 }
