@@ -11,6 +11,7 @@
         "screens": "./app/screens",
         "utils": "./app/utils",
         "types": "./app/types",
+        "services": "./app/services",
         "styles": "./app/styles",
         "static": "./static",
       }

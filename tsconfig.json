@@ -21,6 +21,7 @@
       "containers/*": ["./app/containers/*"],
       "screens/*": ["./app/screens/*"],
       "utils/*": ["./app/utils/*"],
+      "services/*": ["./app/services/*"],
       "types/*": ["./app/types/*"],
       "styles/*": ["./app/styles/*"],
       "static/*": ["./static/*"],
