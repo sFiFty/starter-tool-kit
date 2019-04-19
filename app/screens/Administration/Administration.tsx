@@ -5,7 +5,7 @@ import { Button } from 'components/Button';
 
 export const Administration = (props) => {
 
-  const [appName, setAppName] = React.useState('');
+  const [appName, setAppName] = React.useState(props.data.name);
 
   const onSetAppName = (event: React.SyntheticEvent) => {
     const target = event.target as HTMLInputElement;

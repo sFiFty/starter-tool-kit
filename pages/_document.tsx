@@ -1,8 +1,5 @@
-const config = require('config');
 import Document, { Head, Main, NextScript } from 'next/document'
 import { Script } from 'components/Script';
-import { IConfigTypes } from 'types/core';
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -14,7 +11,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           {
-            config.type === IConfigTypes.production && (
+            process.env.NODE_ENV === 'production' && (
               <>
               <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136559295-1"></script>
                 <Script>

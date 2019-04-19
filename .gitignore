@@ -3,3 +3,4 @@ package-lock.json
 .next/
 config/development.json
 server/adminsdk.json
+.env

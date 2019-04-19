@@ -3,7 +3,7 @@ const path = require('path');
 const next = require('next');
 const bodyParser = require('body-parser')
 const compression = require('compression') ;
-const config = require('config');
+require('dotenv').config();
 const db = require('./db');
 
 
@@ -11,7 +11,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const port = process.env.PORT || config.get('port');
+const port = process.env.PORT;
 
 app.prepare().then(() => {
   const server = express();
