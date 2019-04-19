@@ -15,6 +15,6 @@ module.exports = withPlugins([typescript, css, sass, images], {
       storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
       messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
     },
-    APP_URL: config.APP_URL
+    APP_URL:  process.env.APP_URL
   }
 })
