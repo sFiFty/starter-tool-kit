@@ -4,9 +4,7 @@ const { Schema } = mongoose;
 
 // Create Schema and Model
 const AppConfigSchema = new Schema({
-  config: {
-    name: String
-  },
+  name: String
 });
 
 const AppConfig = mongoose.model('config', AppConfigSchema);

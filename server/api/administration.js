@@ -4,19 +4,16 @@ const { AppConfig } = require('./models/AppConfig');
 
 const administration = (server) => {
   server.get('/api/administration/appConfig', (req, res) => {
-    console.log('request');
     AppConfig.find({}, ((err, app) => {
-      res.send(app);
+      res.send(app[0]);
     }));
   })
   server.post('/api/administration/appConfig', (req, res) => {
-    const { config } = req.body;
-    console.log(name);
-    return;
-    const AppConfig = new AppConfig({ name });
-    AppConfig.save().then(() => {
+    const { name } = req.body;
+    const config = new AppConfig({ name });
+    config.save().then(() => {
       AppConfig.find({}, ((err, app) => {
-        res.send(app);
+        res.send(app[0]);
       }));
     });
   })

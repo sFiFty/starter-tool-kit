@@ -72,7 +72,7 @@ const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) =>
                       noAutocomplete
                       error={errors.firstName}
                       placeholder="First name"
-                      size={IInputSizes.medium}
+                      customSize={IInputSizes.medium}
                       {...field}
                     />
                   )}
@@ -85,7 +85,7 @@ const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) =>
                       type="text"
                       error={errors.lastName}
                       placeholder="Last name"
-                      size={IInputSizes.medium}
+                      customSize={IInputSizes.medium}
                       {...field}
                     />
                   )}

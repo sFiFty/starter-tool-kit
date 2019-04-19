@@ -57,13 +57,13 @@ export const SignInForm = ({ onModeChange, onModalVisibilityChange }: ISignInFor
               <Field
                 name="email"
                 render={({ field }: FieldProps<SignInFormValues>) => (
-                  <Input type="email" error={errors.email} placeholder="Email" size={IInputSizes.medium} {...field}/>
+                  <Input type="email" error={errors.email} placeholder="Email" customSize={IInputSizes.medium} {...field}/>
                 )}
               />
               <Field
                 name="password"
                 render={({ field }: FieldProps<SignInFormValues>) => (
-                  <Input  type="password" error={errors.password} placeholder="Password" size={IInputSizes.medium} {...field} />
+                  <Input  type="password" error={errors.password} placeholder="Password" customSize={IInputSizes.medium} {...field} />
                 )}
               />
               <div className="has-text-centered">

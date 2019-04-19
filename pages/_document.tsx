@@ -1,14 +1,10 @@
 const config = require('config');
 import Document, { Head, Main, NextScript } from 'next/document'
-import { setConfig } from 'next/config';
 import { Script } from 'components/Script';
 import { IConfigTypes } from 'types/core';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
-    setConfig({
-      foo: 'bar',
-    })
     const initialProps = await Document.getInitialProps(ctx)
     return initialProps;
   }

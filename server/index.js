@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const next = require('next');
+const bodyParser = require('body-parser')
 const compression = require('compression') ;
 const config = require('config');
 const db = require('./db');
@@ -16,6 +17,7 @@ app.prepare().then(() => {
   const server = express();
   server.use(compression());
   server.use(express.static(path.join(__dirname, 'dist')));
+  server.use(bodyParser.json());
   const api = require('./api');
   api(server);
   server.listen(port, (err) => {

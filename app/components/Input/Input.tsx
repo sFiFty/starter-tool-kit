@@ -4,23 +4,23 @@ import { addClassNames } from 'utils/component-helpers';
 import { getInputSize, IInputSizes } from './config';
 import './styles.scss';
 
-export interface IInputProps {
+export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>  {
   type?: string;
-  size?: IInputSizes;
+  customSize?: IInputSizes;
   placeholder?: string;
   className?: string;
   error?: string;
-  noAutocomplete: boolean;
+  noAutocomplete?: boolean;
 }
 
 const DEFAULT_CLASSES = 'input st-input';
 const DEFAULT_TYPE = 'text';
 
 export const Input = (
-  { type = DEFAULT_TYPE, placeholder = '', className, size, error, noAutocomplete, ...rest }: IInputProps
+  { type = DEFAULT_TYPE, placeholder = '', className, customSize, error, noAutocomplete, ...rest }: IInputProps
   ) => {
   let classNames = addClassNames(className, DEFAULT_CLASSES);
-  const inputTypeClass = getInputSize(size);
+  const inputTypeClass = getInputSize(customSize);
   classNames = addClassNames(classNames, inputTypeClass);
   if (error) addClassNames(classNames, 'is-danger');
   return (
