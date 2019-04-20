@@ -6,6 +6,7 @@ import { Modal } from 'components/Modal';
 import { IAuthModes } from './config';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
+import { ConfirmPasswordMessage } from './ConfirmPasswordMessage';
 import { routes } from 'utils/routes';
 import './styles.scss';
 
@@ -17,6 +18,7 @@ export interface ISignInFormPropsProps {
 export const Auth = ({ mode, onClose }: ISignInFormPropsProps) => {
   const [isModalShown, showModal] = React.useState(true);
   const [authMode, onModeChange] = React.useState(mode);
+  const [userEmail, setUserEmail] = React.useState(null);
 
   const onModalVisibilityChange = (isShown: boolean) => {
     if (!isShown && !onClose) {
@@ -47,7 +49,12 @@ export const Auth = ({ mode, onClose }: ISignInFormPropsProps) => {
               }
               {
                 authMode === IAuthModes.signUp && (
-                  <SignUpForm onModeChange={onModeChange} onModalVisibilityChange={onModalVisibilityChange} />
+                  <SignUpForm onModeChange={onModeChange} setUserEmail={setUserEmail} />
+                )
+              }
+              {
+                authMode === IAuthModes.confirmPassword && (
+                  <ConfirmPasswordMessage email={userEmail} />
                 )
               }
             </div>

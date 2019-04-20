@@ -1,0 +1,1 @@
+export { ConfirmPasswordMessage } from './ConfirmPasswordMessage';

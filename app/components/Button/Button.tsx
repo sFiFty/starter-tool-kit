@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { addClassNames } from 'utils/component-helpers';
+import { addClassNames, removeClassName } from 'utils/component-helpers';
 import { IButtonTypes, getButtonType, getButtonSize, IButtonSizes } from './config';
 
 export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,11 +8,12 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
   size?: IButtonSizes;
   children: any;
   styleType?: IButtonTypes;
+  loading?: boolean;
 }
 
 const DEFAULT_CLASS = 'button st-button';
 
-export const Button = ({ className = '', size, children, styleType, ...rest }: IButtonProps) => {
+export const Button = ({ className = '', size, children, styleType, loading, ...rest }: IButtonProps) => {
   let classNames = addClassNames(className, DEFAULT_CLASS);
 
   const buttonTypeClass = getButtonType(styleType);
@@ -20,6 +21,8 @@ export const Button = ({ className = '', size, children, styleType, ...rest }: I
 
   const buttonSizeClass = getButtonSize(size);
   classNames = addClassNames(classNames, buttonSizeClass);
+
+  classNames = loading ? addClassNames(classNames, 'is-loading') : removeClassName(classNames, 'is-loading')
 
   return (
     <button className={classNames} {...rest} >

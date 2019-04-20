@@ -6,13 +6,14 @@ import 'firebase/auth';
 
 import { Input, IInputSizes } from 'components/Input';
 import { Button, IButtonTypes, IButtonSizes } from 'components/Button';
+import { error } from 'utils/messages';
 
 import { IAuthModes } from '../config';
 import { withNotification } from 'containers/WithNotification';
 
 export interface ISignUpFormProps {
-  showMessage(): void;
   onModeChange(mode: IAuthModes): void;
+  setUserEmail(email: string): void;
 }
 
 interface SignUpFormValues {
@@ -37,15 +38,24 @@ const ValidationSchema = Yup.object().shape({
     .required('Password is required!')
 });
 
-const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) => {
-
+const SignUpFormComponent = ({ onModeChange, setUserEmail }: ISignUpFormProps) => {
+  const [isLoading, setLoading] = React.useState(false);
   const onSumbit = (values: SignUpFormValues) => {
+    setLoading(true);
+    return;
     firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
     .then(() => {
-      showMessage();
+      firebase.auth().currentUser.sendEmailVerification().then(() => {
+        setUserEmail(values.email); 
+        onModeChange(IAuthModes.confirmPassword);
+        setLoading(false);
+      }, function(err) {
+        setLoading(true);
+        error('Error', err.message)
+      });
     })
-    .catch((error) => {
-      console.log(error.message);
+    .catch((err) => {
+      error('Error', err.message)
     });
   }
 
@@ -99,7 +109,7 @@ const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) =>
                     type="email"
                     error={errors.email}
                     placeholder="Email"
-                    size={IInputSizes.medium}
+                    customSize={IInputSizes.medium}
                     {...field}
                   />
                 )}
@@ -112,13 +122,13 @@ const SignUpFormComponent = ({ onModeChange, showMessage }: ISignUpFormProps) =>
                     type="password"
                     error={errors.password}
                     placeholder="Password"
-                    size={IInputSizes.medium}
+                    customSize={IInputSizes.medium}
                     {...field}
                   />
                 )}
               />
               <div className="has-text-centered">
-                <Button type="submit" styleType={IButtonTypes.primary} size={IButtonSizes.medium}>
+                <Button loading={isLoading} type="submit" styleType={IButtonTypes.primary} size={IButtonSizes.medium}>
                   SIGN UP
                 </Button>
               </div>
